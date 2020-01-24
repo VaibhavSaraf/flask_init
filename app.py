@@ -17,17 +17,14 @@ def bye():
         'Roll No.:':'31453'
     }
     return retJson
-"""
-all communications between server between server/server, server/browser, browser/browser
-it is in "TEXT" TC
-return Image
-[
-    123 125 126 127
-    124 125 126 127
-]
+
+@app.route('/home', methods=['POST','GET'], defaults = {'name' : 'Default'})
+@app.route('/home/<string:name>', methods = ['POST','GET'])
+def home(name):
+    return '<h1>Hello {}, You are in homepage now</h1>'.format(name)
 
 
-"""
+
 
 if __name__=="__main__":
     app.run(host="127.0.0.1",port=5000,debug=True)
