@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,request
 app = Flask(__name__)
 
 #127.0.0.1:5000/
@@ -23,7 +23,11 @@ def bye():
 def home(name):
     return '<h1>Hello {}, You are in homepage now</h1>'.format(name)
 
-
+@app.route('/query')
+def query():
+    name = request.args.get('name')
+    location = request.args.get('location')
+    return '<h1> hi {}. you are from {}. you are on query page</h1> '.format(name,location)
 
 
 if __name__=="__main__":
