@@ -1,8 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}homepage{% endblock %}
+
+{% block content %}
+{{ super() }}
+
 <h1>Hello {{ name }}, You are in homepage now</h1>
 {% if display %}
-<h2>This is been displayed</h2> 
+<h2>This is been displayed</h2>
 {% else %}
-<h2>This is been not displayed</h2> 
+<h2>This is been not displayed</h2>
 {% endif %}
 
 {% for x in mylist %}
@@ -14,3 +21,5 @@
 {% endfor %}
 
 <img src="{{ url_for('static', filename = 'images/timetable.png') }}">
+{% include "include_this.html" %}
+{% endblock %}
